@@ -1,14 +1,20 @@
 package com.inde.inde;
 
+import java.util.HashMap;
+
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
 public interface RESTApi {
@@ -17,16 +23,19 @@ public interface RESTApi {
 
     @POST("/login")
     Call<ResponseBody> login(
-            @Query("email") String email,
-            @Query("password") String password);
+            @Body HashMap<String, String> user);
+
+//    @Multipart
+//    @POST("/user")
+//    Call<ResponseBody> register(
+//            @FieldMap HashMap<user, Object> user,
+//            @FieldMap HashMap<String, Object> email,
+//            @Part MultipartBody.Part file);
 
     @Multipart
     @POST("/user")
     Call<ResponseBody> register(
-            @Query("email") String email,
-            @Query("password") String password,
-            @Query("nickname") String nickname,
-            @Query("name") String name,
+            @PartMap() HashMap<String, user> user,
             @Part MultipartBody.Part file);
 
     public static final Retrofit retrofit = new Retrofit.Builder()

@@ -15,6 +15,8 @@ import androidx.cardview.widget.CardView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
+import java.util.HashMap;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -70,8 +72,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void Login(String email, String password) {
 
+
+        HashMap<String, String> student = new HashMap<String, String>();
+
+        student.put("email", "hi@naver.com");
+        student.put("password", "password");
+
         RESTApi mRESTApi = RESTApi.retrofit.create(RESTApi.class);
-        mRESTApi.login(email, password)
+        mRESTApi.login(student)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -169,8 +170,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             e.printStackTrace();
         }
 
+        user user = new user(email, password, name, nickname);
+
+
+        HashMap<String, user> student = new HashMap<String, user>();
+        student.put("user", user);
+
+        HashMap<String, MultipartBody.Part> student1 = new HashMap<String, MultipartBody.Part>();
+        student1.put("email", filePart);
+
         RESTApi mRESTApi = RESTApi.retrofit.create(RESTApi.class);
-        mRESTApi.register(email, password, nickname, name, filePart)
+        mRESTApi.register(student, filePart)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
