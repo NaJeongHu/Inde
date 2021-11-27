@@ -9,8 +9,17 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="main_navy">#312B46</color>
-    <color name="main_purple">#FF8645FF</color>
+    <color name="test">#808080</color>
+
+
+    <color name="main_temp_navy">#312B46</color>
+    <color name="main_navy">#FFFFFFFF</color>
+    <color name="main_purple">#343B58</color>
     <color name="main_mauve">#FFF5F5F9</color>
     <color name="main_white">#FFFFFFFF</color>
+    <color name="main_bright_mauve">#E6EBFA</color>
+    <color name="main_kakao_yellow">#FEE300</color>
+    <color name="main_kakao_navy">#343B58</color>
+
+    <color name="temp">#343090</color>
 </resources>
